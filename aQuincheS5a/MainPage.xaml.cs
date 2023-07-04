@@ -28,9 +28,23 @@ namespace aQuincheS5a
             post = new ObservableCollection<Estudiante>(listaPost);
             listaEstudiantes.ItemsSource = post;
         }
-        private async void btnMostrar_Clicked(object sender, EventArgs e)
+   
+        private void btnInsertar_Clicked(object sender, EventArgs e)
         {
-          
+            Navigation.PushAsync(new Insertar());
+        }
+
+        private void listaEstudiantes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var objeto = (Estudiante)e.SelectedItem;
+            var codigoTem = objeto.codigo.ToString();
+            int codigo = Convert.ToInt32(codigoTem);
+            string nombre = objeto.nombre.ToString();
+            string apellido = objeto.apellido.ToString();
+            var edadTemp = objeto.edad.ToString();
+            int edad = Convert.ToInt32(edadTemp);
+
+            Navigation.PushAsync(new ActualizarEliminar(codigo,nombre,apellido,edad));
         }
     }
 }
