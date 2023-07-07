@@ -33,12 +33,14 @@ namespace aQuincheS5a
             parametros.Add("apellido", txtApellido.Text);
             parametros.Add("edad", txtEdad.Text);
 
-            cliente.UploadValues("http://10.2.9.191/ws_uisrael/post.php?codigo="+ txtCodigo.Text + "&nombre=" + txtNombre.Text + "&apellido=" + txtApellido.Text + "&edad=" + txtEdad.Text, "PUT", parametros);
+            cliente.UploadValues("http://192.168.56.1/ws_uisrael/post.php?codigo=" + txtCodigo.Text + "&nombre=" + txtNombre.Text + "&apellido=" + txtApellido.Text + "&edad=" + txtEdad.Text, "PUT", parametros);
 
             DisplayAlert("ACTUALIZAR", "Dato actualizado con exito", "Cerrar")
                 ;
 
             Navigation.PushAsync(new MainPage());
+            var mensaje = "Elemento actualizado con exito";
+            DependencyService.Get<Mensaje>().longAlert(mensaje);
 
         }
 
@@ -51,11 +53,13 @@ namespace aQuincheS5a
             parametros.Add("apellido", txtApellido.Text);
             parametros.Add("edad", txtEdad.Text);
 
-            cliente.UploadValues("http://10.2.9.191/ws_uisrael/post.php?codigo="+ txtCodigo.Text, "DELETE", parametros);
+            cliente.UploadValues("http://192.168.56.1/ws_uisrael/post.php?codigo=" + txtCodigo.Text, "DELETE", parametros);
 
             DisplayAlert("ELIMINAR", "Dato Eliminado", "Cerrar");
 
             Navigation.PushAsync(new MainPage());
+            var mensaje = "Elemento Eliminado con exito";
+            DependencyService.Get<Mensaje>().longAlert(mensaje);
         }
     }
 }

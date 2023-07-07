@@ -4,7 +4,7 @@
              x:Class="aQuincheS5a.Insertar">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="INSERTAR ESTUDIANTES " FontSize="20" HorizontalTextAlignment="Center" />
+            <Label Text="INSERTAR ESTUDIANTES , " FontSize="20" HorizontalTextAlignment="Center" />
             <Entry x:Name="txtCodigo" Placeholder="Codigo" Keyboard="Numeric"/>
             <Entry x:Name="txtNombre" Placeholder="Nombre" />
             <Entry x:Name="txtApellido" Placeholder="Apellido" />

@@ -28,16 +28,19 @@ namespace aQuincheS5a
                 parametros.Add("nombre", txtNombre.Text);
                 parametros.Add("apellido", txtApellido.Text);
                 parametros.Add("edad", txtEdad.Text);
-                cliente.UploadValues("http://10.2.9.191/ws_uisrael/post.php", "POST", parametros);
+                cliente.UploadValues("http://192.168.56.1/ws_uisrael/post.php", "POST", parametros);
                 DisplayAlert("Alerta", "Dato insertado", "Cerrar");
                 Navigation.PushAsync(new MainPage());
             } catch (Exception ex) {
                 DisplayAlert("Alertar", ex.Message, "Cerrar");
             }
+            var mensaje = "Elemento ingresado con exito";
+            DependencyService.Get<Mensaje>().longAlert(mensaje);
         }
 
         private void btnCancelar_Clicked(object sender, EventArgs e)
         {
+            
             
         }
     }
